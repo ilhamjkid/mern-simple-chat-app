@@ -106,7 +106,7 @@ const Register = (props) => {
                 masuk!
               </Link>
             </div>
-            <ChangeTheme />
+            <ChangeTheme type="toggle" />
           </form>
         </div>
       </div>

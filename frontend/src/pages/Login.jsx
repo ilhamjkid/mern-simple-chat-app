@@ -93,7 +93,7 @@ const Login = (props) => {
               </Link>{" "}
               dulu!
             </div>
-            <ChangeTheme />
+            <ChangeTheme type="toggle" />
           </form>
         </div>
       </div>
