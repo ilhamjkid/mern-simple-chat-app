@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { usersState, userLoginState, userChatState } from "../utils/states";
-import Navbar from "../components/Navbar";
-import Chat from "../components/Chat";
-import Blank from "../components/Blank";
+import { usersState, userLoginState, userChatState } from "../stores/states";
+import Navbar from "../components/Partials/Navbar";
+import Chat from "../components/ChildPages/Chat";
+import Blank from "../components/ChildPages/Blank";
 
 const Home = (props) => {
   const [users] = useRecoilState(usersState);

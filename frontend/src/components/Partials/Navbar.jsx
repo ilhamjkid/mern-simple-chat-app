@@ -1,4 +1,4 @@
-import ChangeTheme from "./ChangeTheme";
+import ChangeTheme from "../Themes/ChangeTheme";
 
 const Navbar = (props) => {
   return (
@@ -9,7 +9,7 @@ const Navbar = (props) => {
         <button
           type="button"
           onClick={() => props?.setIsAuth(false)}
-          className="text-white bg-blue-600 hover:bg-blue-800 shadow-sm overflow-hidden font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+          className="text-white bg-blue-600 hover:bg-blue-800 shadow-sm overflow-hidden font-medium rounded-3xl text-sm px-5 py-2.5 text-center"
         >
           Keluar
         </button>

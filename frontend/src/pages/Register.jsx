@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Input from "../components/Input";
-import Button from "../components/Button";
-import Toast from "../components/Toast";
-import ChangeTheme from "../components/ChangeTheme";
+import Input from "../components/Forms/Input";
+import Button from "../components/Forms/Button";
+import Toast from "../components/Alerts/Toast";
+import ChangeTheme from "../components/Themes/ChangeTheme";
 import BondlikesLogo from "../images/logo/Bondlikes.svg";
 
 const Register = (props) => {

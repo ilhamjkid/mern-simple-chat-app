@@ -3,7 +3,7 @@ const ButtonTheme = ({ theme, changeTheme }) => {
     <div className="flex justify-center items-center">
       <button
         type="button"
-        className="bg-blue-600 hover:bg-blue-800 shadow-sm rounded-lg overflow-hidden p-1 mr-2"
+        className="bg-blue-600 hover:bg-blue-800 shadow-sm rounded-full overflow-hidden p-1 mr-2"
         onClick={changeTheme}
       >
         {theme === "dark" ? (

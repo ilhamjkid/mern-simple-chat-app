@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ToggleTheme from "./ToggleTheme";
-import ButtonTheme from "./ButtonTheme";
+import ToggleTheme from "../Themes/ToggleTheme";
+import ButtonTheme from "../Themes/ButtonTheme";
 
 const ChangeTheme = (props) => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
