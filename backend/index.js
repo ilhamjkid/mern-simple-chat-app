@@ -10,6 +10,7 @@ import accessLogStream from "./helpers/accessLogStream.js";
 import errorController from "./controllers/errorController.js";
 import authRouter from "./routes/authRouter.js";
 import userRouter from "./routes/userRouter.js";
+import messageRouter from "./routes/messageRouter.js";
 
 const server = express();
 const PORT = process.env.PORT || 5000;
@@ -19,11 +20,18 @@ const { NODE_ENV, MONGO_URI } = process.env;
 server.use(express.json());
 server.use(cookieParser());
 server.use(cors({ origin: CLIENT_URL, credentials: true }));
-server.use(morgan("combined", { stream: accessLogStream }));
 server.use(helmet());
+if (NODE_ENV !== "production") {
+  server.use(
+    morgan("combined", {
+      stream: accessLogStream,
+    })
+  );
+}
 
 server.use("/api/auth", authRouter);
 server.use("/api/users", userRouter);
+server.use("/api/messages", messageRouter);
 
 server.use(errorController.get404Error);
 server.use(errorController.getSystemError);

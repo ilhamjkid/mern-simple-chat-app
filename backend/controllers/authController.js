@@ -21,7 +21,8 @@ const register = asyncHandler(async (req, res, next) => {
   // Create new user
   const { name, email, password: rawPW } = req.body;
   const password = await bcrypt.hash(rawPW, 12);
-  const user = await User.create({ name, email, password });
+  const verified = { status: true };
+  const user = await User.create({ name, email, password, verified });
 
   res.status(201).json({
     message: "Berhasil mendaftar.",
@@ -51,6 +52,9 @@ const login = asyncHandler(async (req, res, next) => {
   // Check if password match
   const { name, password: pwHash } = userExists;
   if (!(await bcrypt.compare(password, pwHash))) return sendError(errorMessage, 401);
+
+  // Check if user verified
+  if (!userExists.verified?.status) return sendError("Akun belum diverifikasi.", 403);
 
   // Create access token & refresh token
   const accessToken = jwt.sign({ name, email }, ACCESS_TOKEN, { expiresIn: "30s" });

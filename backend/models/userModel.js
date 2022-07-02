@@ -22,7 +22,8 @@ const userSchema = new Schema(
     },
     verified: {
       status: Boolean,
-      code: String,
+      token: String,
+      expiration: Date,
     },
   },
   { timestamps: true }
