@@ -1,16 +1,24 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import axios from "axios";
+import { RecoilRoot } from "recoil";
+import Loading from "./pages/Loading";
+axios.defaults.withCredentials = true;
 
 const root = document.getElementById("root");
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RecoilRoot>
+      <Suspense fallback={<Loading />}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Suspense>
+    </RecoilRoot>
   </React.StrictMode>
 );
 

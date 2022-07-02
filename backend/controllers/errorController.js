@@ -6,7 +6,10 @@ const { NODE_ENV } = process.env;
  * @access  Public
  */
 const get404Error = (req, res, next) => {
-  res.status(404).json({ message: "Error Not found." });
+  res.status(404).json({
+    message: "Error Not found.",
+    success: false,
+  });
 };
 
 /**
@@ -19,6 +22,7 @@ const getSystemError = (error, req, res, next) => {
     message: error?.message,
     validations: error?.validations,
     stack: error?.stack,
+    success: false,
   };
   const status = error.statusCode || 500;
   if (status !== 422) errors.validations = null;

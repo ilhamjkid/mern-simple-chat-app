@@ -33,6 +33,7 @@ const sendMessage = asyncHandler(async (req, res, next) => {
 
   res.status(201).json({
     message: "Berhasil mengirim pesan.",
+    success: true,
     messageSent: messagePopulate,
   });
 });
@@ -60,6 +61,7 @@ const getMessages = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     message: "Berhasil mendapatkan pesan.",
+    success: true,
     messages,
   });
 });

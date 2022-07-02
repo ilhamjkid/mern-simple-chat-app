@@ -26,6 +26,7 @@ const register = asyncHandler(async (req, res, next) => {
 
   res.status(201).json({
     message: "Berhasil mendaftar.",
+    success: true,
     user: {
       _id: user._id,
       name: user.name,
@@ -74,6 +75,7 @@ const login = asyncHandler(async (req, res, next) => {
   });
   res.status(200).json({
     message: "Berhasil masuk.",
+    success: true,
     user: {
       _id: userExists._id,
       name: userExists.name,
@@ -98,7 +100,10 @@ const logout = asyncHandler(async (req, res, next) => {
   res.clearCookie("refreshToken");
   res.clearCookie("authenticated");
 
-  res.status(200).json({ message: "Berhasil keluar." });
+  res.status(200).json({
+    message: "Berhasil keluar.",
+    success: true,
+  });
 });
 
 /**
@@ -139,6 +144,7 @@ const refresh = asyncHandler(async (req, res, next) => {
   });
   res.status(200).json({
     message: "Berhasil mendapatkan token.",
+    success: true,
     accessToken,
   });
 });
